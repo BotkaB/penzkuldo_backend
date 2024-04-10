@@ -7,7 +7,7 @@ use App\Models\Szamla;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use function PHPUnit\Framework\throwException;
+
 
 class PenzmozgasController extends Controller
 {
@@ -53,7 +53,7 @@ class PenzmozgasController extends Controller
         $ujCimzettEgyenleg = $osszeg + $cimzettEgyenleg;
 
         if($ujKuldoEgyenleg<0){
-            throw new \Exception($error);
+            throw($error);
         }
        
         $penzmozgas->save();
