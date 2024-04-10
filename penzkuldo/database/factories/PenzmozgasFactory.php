@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+
 use App\Models\Szamla;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -17,11 +18,17 @@ class PenzmozgasFactory extends Factory
      */
     public function definition(): array
     {
+        $kuldo = Szamla::all()->random()->id;
+        $cimzett = null;
+        do {
+            $cimzett = Szamla::all()->random()->id;
+        } while ($cimzett == $kuldo);
+
         return [
-            'kuldo_szamla' => Szamla::all()->random()->id,
-            'cimzett_szamla' => Szamla::all()->random()->id,
-            'osszeg'=>rand(100, 10000000),
-            'kuldes_idopont'=> fake()->dateTimeBetween('-3 years', 'now'),
+            'kuldo_szamla' => $kuldo,
+            'cimzett_szamla' =>$cimzett ,
+            'osszeg' => rand(100, 10000000),
+            'kuldes_idopont' => fake()->dateTimeBetween('-3 years', 'now'),
         ];
     }
 }

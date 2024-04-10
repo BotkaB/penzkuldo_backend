@@ -1,0 +1,283 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "penzkuldo",
+    "dateExported": "2024-04-10T10:50:45.425Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d76bb0dd-1734-477c-b0ac-40b3f86517c3",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "szamlak mutatasa",
+            "url": "http://localhost:8000/api/szamla",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-04-08T12:37:39.997Z",
+            "modified": "2024-04-08T13:34:42.564Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9fde8a8a-c5b6-4e2d-902c-1f0e23870ada",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "egy szamla mutatasa",
+            "url": "http://localhost:8000/api/szamla/6",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-04-08T12:40:04.182Z",
+            "modified": "2024-04-08T14:16:35.028Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "dc606c7c-593b-43d7-a9f8-3e36d15ff20e",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "szamla uj",
+            "url": "http://localhost:8000/api/szamla/1?user_id=1&szamlaszam=8742838301937&egyenleg=4000",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-04-08T14:21:17.688Z",
+            "modified": "2024-04-08T14:22:34.179Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "user_id",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "szamlaszam",
+                    "value": "8742838301937",
+                    "isPath": false
+                },
+                {
+                    "name": "egyenleg",
+                    "value": "4000",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "93545606-3493-4edd-868f-b0c0ae664167",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "szamla modositasa",
+            "url": "http://localhost:8000/api/szamla/6?szamlaszam=3571632965930&egyenleg=1430000&user_id=7",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-04-08T13:12:43.440Z",
+            "modified": "2024-04-08T14:20:20.126Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "szamlaszam",
+                    "value": "3571632965930",
+                    "isPath": false
+                },
+                {
+                    "name": "egyenleg",
+                    "value": "1430000",
+                    "isPath": false
+                },
+                {
+                    "name": "user_id",
+                    "value": "7",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "acd4d555-51d1-4a08-89b0-b9b72babf70d",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "felhasznalok",
+            "url": "http://localhost:8000/api/users",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-04-08T13:36:10.251Z",
+            "modified": "2024-04-08T13:39:50.058Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "dcf12dfe-f73d-44c8-bb70-2c9656a063b1",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "egy felhasznalo",
+            "url": "http://localhost:8000/api/users/2",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-04-08T13:40:07.119Z",
+            "modified": "2024-04-08T13:46:12.756Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ddf7c129-624d-4143-bff5-f0b51a6e5bb4",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "felhasznalo uj",
+            "url": "http://localhost:8000/api/users?name=Kovács Béla&email=kovacsb@gmail.com&password=Béla2010",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-04-08T14:08:24.592Z",
+            "modified": "2024-04-08T14:11:10.077Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "Kovács Béla",
+                    "isPath": false
+                },
+                {
+                    "name": "email",
+                    "value": "kovacsb@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "password",
+                    "value": "Béla2010",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "65819d2b-b412-43fd-97a4-8528c7fa661a",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "felhasznalo modositasa",
+            "url": "http://localhost:8000/api/users/21?name=Kovács Béla&email=kovacsb@gmail.com&password=Bála2145",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2024-04-08T14:14:01.015Z",
+            "modified": "2024-04-08T14:16:00.325Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "Kovács Béla",
+                    "isPath": false
+                },
+                {
+                    "name": "email",
+                    "value": "kovacsb@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "password",
+                    "value": "Bála2145",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "b44792ce-5422-4a18-972f-3d2a2b8d3107",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "penzmozgasok mutatasa",
+            "url": "http://localhost:8000/api/penzmozgas",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-04-08T14:27:56.952Z",
+            "modified": "2024-04-08T14:28:26.194Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "50d1f9b7-308a-4dd9-a089-7ae6da0f7514",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "egy pénzmozgás mutatása",
+            "url": "http://localhost:8000/api/penzmozgas/2/2022-07-10 04:57:04",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-04-08T14:29:04.854Z",
+            "modified": "2024-04-10T10:00:10.696Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9894c094-78b9-4a9b-87f0-ddf93db6e11f",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "penzmozgas modositasa",
+            "url": "http://localhost:8000/api/penzmozgas/1/2022-08-22 21:41:34?osszeg=1000&kuldo_szamla=1&cimzett_szamla=23&kuldes_idopont=2022-08-22 21:41:34",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2024-04-08T15:16:17.977Z",
+            "modified": "2024-04-10T10:26:12.782Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "osszeg",
+                    "value": "1000",
+                    "isPath": false
+                },
+                {
+                    "name": "kuldo_szamla",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "cimzett_szamla",
+                    "value": "23",
+                    "isPath": false
+                },
+                {
+                    "name": "kuldes_idopont",
+                    "value": "2022-08-22 21:41:34",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "93806170-59f8-412f-aec3-ad4db5a4e5b1",
+            "colId": "2eda302a-72e0-4fa1-aa4b-16b781b45da8",
+            "containerId": "",
+            "name": "penzmozgas uj",
+            "url": "http://localhost:8000/api/penzmozgas?kuldo_szamla=4&cimzett_szamla=3&osszeg=8000&kuldes_idopont=2024-04-09 17:18:49",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-04-08T15:21:32.556Z",
+            "modified": "2024-04-10T10:49:27.605Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "kuldo_szamla",
+                    "value": "4",
+                    "isPath": false
+                },
+                {
+                    "name": "cimzett_szamla",
+                    "value": "3",
+                    "isPath": false
+                },
+                {
+                    "name": "osszeg",
+                    "value": "8000",
+                    "isPath": false
+                },
+                {
+                    "name": "kuldes_idopont",
+                    "value": "2024-04-09 17:18:49",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        }
+    ]
+}

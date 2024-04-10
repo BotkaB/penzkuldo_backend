@@ -9,12 +9,13 @@ class Penzmozgas extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+   /* public $timestamps = false;
 
     public function timestamp()
     {
         $this->kuldes_idopont = time();
     }
+    */
 
     protected $table = 'penzmozgas';
     protected function setKeysForSaveQuery($query)
