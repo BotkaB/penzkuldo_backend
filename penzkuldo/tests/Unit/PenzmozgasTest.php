@@ -2,7 +2,8 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+/*use PHPUnit\Framework\TestCase;*/
+use Tests\TestCase;
 
 class PenzmozgasTest extends TestCase
 {

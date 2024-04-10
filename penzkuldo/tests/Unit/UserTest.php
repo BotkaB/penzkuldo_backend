@@ -2,8 +2,14 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+/*use PHPUnit\Framework\TestCase;*/
+
+use Tests\TestCase;
 use App\Models\User;
+use App\Controllers\UserController;
+
+
+use Illuminate\Http\Request;
 
 class UserTest extends TestCase
 {
@@ -16,7 +22,7 @@ class UserTest extends TestCase
     }
     */
 
-    public function test_ujFelhasznalo()
+    public function test_ujFelhasznalo_joAdat()
     {
         $user = User::factory()->make([
             'name' => 'Kiss Pista',
@@ -24,5 +30,15 @@ class UserTest extends TestCase
             'password' => 'jbhegvkjzgbbfjalgl13!'
         ]);
         $this->assertEquals($user->name, 'Kiss Pista');
+    }
+
+    public function test_ujFelhasznalo_rosszAdat()
+    {
+        $user = User::factory()->make([
+            'name' => 'Kiss József',
+            'email' => 'sdfg@gfhdj.hu',
+            'password' => 'jbhegvkjzgbbfjalgl13!'
+        ]);
+        $this->assertNotEquals($user->name, 'Kiss Pista');
     }
 }
