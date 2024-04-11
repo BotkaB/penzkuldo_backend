@@ -8,6 +8,7 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Controllers\UserController;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use Illuminate\Http\Request;
 
@@ -22,23 +23,31 @@ class UserTest extends TestCase
     }
     */
 
-    public function test_ujFelhasznalo_joAdat()
+
+
+    public function test_ujFelhasznalo()
     {
-        $user = User::factory()->make([
-            'name' => 'Kiss Pista',
-            'email' => 'sdfg@gfhdj.hu',
-            'password' => 'jbhegvkjzgbbfjalgl13!'
-        ]);
+
+        $user = $this->user();
+
+
+        $user->name = "Kiss Pista";
+
         $this->assertEquals($user->name, 'Kiss Pista');
+        $this->assertNotEquals($user->name, 'Kiss József');
     }
 
-    public function test_ujFelhasznalo_rosszAdat()
+
+
+    public function test_felhasznalo_adatModosit()
     {
-        $user = User::factory()->make([
-            'name' => 'Kiss József',
-            'email' => 'sdfg@gfhdj.hu',
-            'password' => 'jbhegvkjzgbbfjalgl13!'
-        ]);
-        $this->assertNotEquals($user->name, 'Kiss Pista');
+      
+        $user = $this->user();
+
+        $user->save();
+        $response = $this->put('api/users/' . $user->user_id, ['name' => 'Kiss Józsefné', 'email' => $user->email, 'password' => $user->password]);
+        $user = User::find($user->user_id);
+        $this->assertEquals($user->name, 'Kiss Józsefné');
+        $this->assertNotEquals($user->name, 'Kiss József');
     }
 }
