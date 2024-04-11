@@ -61,19 +61,24 @@ class SzamlaController extends Controller
         else{ throw($error); }
     }
 
-    public function felhasznalonkentSzamlak()
-    {
-        $szamlak = felhasznalokSzamlai()->get();
-        return $szamlak;
+ 
+     public function felhasznaloSzamlai($id){
+        $szamlak = Szamla::with('felhasznalokSzamlai')
+            ->where('user_id', '=', $id)
+            ->get();
 
-      
-    }
-
-    public function felhasznaloSzamlai($user_id){
-        $user =  User::find($user_id);
-        $szamlak= Szamla::with('user')->where('user_id','=',$user->user_id)->get();
         return $szamlak;
     }
 
-   
+    public function szamlaPenzmozgasai($id){
+        $penzmozgasok = Szamla::with('szamlaPenzmozgasok')
+            ->where('id', '=', $id)
+            ->get();
+
+        return $penzmozgasok;
+    }
+
+    
+    
+
 }

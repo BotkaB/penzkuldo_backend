@@ -6,6 +6,9 @@ use App\Models\Penzmozgas;
 use App\Models\Szamla;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+
 
 
 
@@ -88,5 +91,20 @@ class PenzmozgasController extends Controller
     {
         Penzmozgas::find($id)->delete();
         return "Sikeres törlés";
+    }
+
+
+    public function bejelentkezettFelhasznaloPenzmozgasai(){
+        
+        $user = Auth::user()->user_id;
+        
+            return DB::select("SELECT sz.szamlaszam as szamlam, szc.szamlaszam as cimzett, osszeg, kuldes_idopont, sz.egyenleg FROM penzmozgas as p 
+            join szamlas as sz on p.kuldo_szamla=sz.id
+            join szamlas as szc on p.cimzett_szamla=szc.id
+            join users as u on sz.user_id=u.user_id
+            where u.user_id=$user->user_id
+            order by p.kuldes_idopont Desc;");
+
+           
     }
 }

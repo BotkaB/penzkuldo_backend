@@ -21,15 +21,13 @@ class Szamla extends Model
     public function felhasznalokSzamlai()
     {  return $this->belongsTo(User::class, 'user_id', 'user_id' );   }
 
-    public function egyFelhasznaloSzamlai($id){
-        $user =  User::find($id);
-        $szamlak = User::with('felhasznalokSzamlai')->where('user_id','=',$user->user_id)->get();
-        return $szamlak;
-}
+   
   
-    public function szamlaPenzMozgas()
+    public function szamlaPenzMozgasok()
     {    
-        return $this->hasMany(Penzmozgas::class, 'id', 'id');
+        return $this->hasMany(Penzmozgas::class,  'kuldo_szamla', 'id');
     }
+
+    
    
 }

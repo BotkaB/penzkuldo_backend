@@ -21,11 +21,17 @@ Route::post('szamla', [SzamlaController::class, 'store']);
 Route::put('szamla/{id}', [SzamlaController::class, 'update']);
 
 
-Route::get('szamla/felhasznalokszamlai', [UserController::class, 'felhasznalonkentSzamlak']);
-
+Route::get('szamla/felhasznaloszamlai/{id}', [SzamlaController::class, 'felhasznaloSzamlai']);
+Route::get('szamla/szamlapenzmozgasai/{id}', [SzamlaController::class, 'szamlaPenzmozgasai']);
 
 
 Route::get('penzmozgas', [PenzmozgasController::class, 'index']);
 Route::get('penzmozgas/{id}/{date}', [PenzmozgasController::class, 'show']);
 Route::post('penzmozgas', [PenzmozgasController::class, 'store']);
 Route::put('penzmozgas/{id}/{date}', [PenzmozgasController::class, 'update']);
+
+
+Route::middleware(['auth.basic'])->group(function(){
+    Route::get('/bejelentkezettfelhasznalopenzmozgasai', [PenzmozgasController::class, 'bejelentkezettFelhasznaloPenzmozgasai']);
+  
+});
