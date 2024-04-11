@@ -32,7 +32,7 @@ class DatabaseTest extends TestCase
         $this->seed();
         User::factory()->count(10)->create();
        
-       $this->assertDatabaseCount('users',30);
+       $this->assertDatabaseCount('users',32);
 
        Szamla::factory()->count(15)->create();
        $this->assertDatabaseCount('szamlas',45);

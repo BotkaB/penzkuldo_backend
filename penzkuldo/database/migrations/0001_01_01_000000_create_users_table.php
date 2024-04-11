@@ -30,6 +30,15 @@ return new class extends Migration
             ]
         );
 
+        User::create(
+            [
+                'name' => 'user',
+                'email' => 'user@user.hu',
+                'password' => 'user',
+                'permission' => 0
+            ]
+        );
+
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
