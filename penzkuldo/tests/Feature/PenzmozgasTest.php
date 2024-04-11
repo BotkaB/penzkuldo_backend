@@ -45,13 +45,15 @@ class PenzmozgasTest extends TestCase
 
     public function test_ujPenzmozgasApi():void
     {
-        $user1 = User::factory()->create();
-        $szamla1 = Szamla::factory()->create();
+        
+        $szamla1 = $this->szamla();
+        $szamla1->save();
         $szamla1 = Szamla::find($szamla1->id);
         $szamla1->egyenleg=321000;
         $szamla1->save();
         $user2 = User::factory()->create();
-        $szamla2 = Szamla::factory()->create();
+        $szamla2 = $this->szamla();
+        $szamla2->save();
         $szamla2 = Szamla::find($szamla2->id);
         $szamla2->egyenleg=1000;
         $szamla2->save();
@@ -63,13 +65,13 @@ class PenzmozgasTest extends TestCase
 
     public function test_penzmozgasModositApi()
     {
-        $user1 = User::factory()->create();
-        $szamla1 = Szamla::factory()->create();
+        $szamla1 = $this->szamla();
+        $szamla1->save();
         $szamla1 = Szamla::find($szamla1->id);
         $szamla1->egyenleg=320000;
         $szamla1->save();
-        $user2 = User::factory()->create();
-        $szamla2 = Szamla::factory()->create();
+        $szamla2 = $this->szamla();
+        $szamla2->save();
         $szamla2 = Szamla::find($szamla2->id);
         $szamla2->egyenleg=30000000;
         $szamla2->save();
