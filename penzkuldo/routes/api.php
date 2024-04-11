@@ -21,6 +21,9 @@ Route::post('szamla', [SzamlaController::class, 'store']);
 Route::put('szamla/{id}', [SzamlaController::class, 'update']);
 
 
+Route::get('szamla/felhasznalokszamlai', [UserController::class, 'felhasznalonkentSzamlak']);
+
+
 
 Route::get('penzmozgas', [PenzmozgasController::class, 'index']);
 Route::get('penzmozgas/{id}/{date}', [PenzmozgasController::class, 'show']);

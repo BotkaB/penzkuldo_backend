@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -24,7 +25,7 @@ class UserController extends Controller
         $felhasznalo = new User();
         $felhasznalo->name = $request->name;
         $felhasznalo->email = $request->email;
-        $felhasznalo->password = $request->password;
+        $felhasznalo->password = Hash::make($request->password);
        
         $felhasznalo->save();
         return $felhasznalo;
@@ -36,7 +37,7 @@ class UserController extends Controller
     
         $felhasznalo->name = $request->name;
         $felhasznalo->email = $request->email;
-        $felhasznalo->password = $request->password;
+        $felhasznalo->password = Hash::make($request->password);
        
         $felhasznalo->save();
         return $felhasznalo;
@@ -49,5 +50,6 @@ class UserController extends Controller
         return "Sikeres törlés";
     }
 
-  
+    
 }
+
