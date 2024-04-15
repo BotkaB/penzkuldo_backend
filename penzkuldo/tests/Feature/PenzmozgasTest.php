@@ -43,38 +43,63 @@ class PenzmozgasTest extends TestCase
 
     }
 
-    public function test_ujPenzmozgasApi():void
+    public function test_ujSikeresPenzmozgasApi():void
     {
         
         $szamla1 = $this->szamla();
-        $szamla1->save();
-        $szamla1 = Szamla::find($szamla1->id);
         $szamla1->egyenleg=321000;
         $szamla1->save();
-        $user2 = User::factory()->create();
         $szamla2 = $this->szamla();
-        $szamla2->save();
-        $szamla2 = Szamla::find($szamla2->id);
+      
         $szamla2->egyenleg=1000;
         $szamla2->save();
+        $szamla3 =  $this->szamla();
+        $szamla3->save();
         $response = $this->post('api/penzmozgas/', ['kuldo_szamla'=>$szamla1->id, 'cimzett_szamla'=>$szamla2->id, 'osszeg'=>'1000', 'kuldes_idopont'=>'2022-02-22 19:56:47']);
         $response->assertStatus(201);
-        $response = $this->post('api/penzmozgas/', ['kuldo_szamla'=>$szamla1->id, 'cimzett_szamla'=>$szamla2->id, 'osszeg'=>'411000', 'kuldes_idopont'=>'2022-02-22 19:56:47']);
-        $response->assertStatus(500);
+       // $response = $this->post('api/penzmozgas/', ['kuldo_szamla'=>$szamla1->id, 'cimzett_szamla'=>$szamla2->id, 'osszeg'=>'411000', 'kuldes_idopont'=>'2022-02-22 19:56:47']);
+       // $response->assertStatus(500);
+       $szamla1 = Szamla::find($szamla1->id);
+       $this->assertEquals($szamla1->egyenleg, 320000);
+       $szamla2 = Szamla::find($szamla2->id);
+       $this->assertEquals($szamla2->egyenleg, 2000);
+       $szamla3 = Szamla::find($szamla3->id);
+       $this->assertEquals($szamla3->egyenleg, $szamla3->egyenleg);
     }
+
+    public function test_ujSikertelenPenzmozgasApi():void
+    {
+        
+        $szamla1 = $this->szamla();
+        $szamla1->egyenleg=321000;
+        $szamla1->save();
+        $szamla2 = $this->szamla();
+      
+        $szamla2->egyenleg=1000;
+        $szamla2->save();
+        $szamla3 =  $this->szamla();
+        $szamla3->save();
+        $response = $this->post('api/penzmozgas/', ['kuldo_szamla'=>$szamla2->id, 'cimzett_szamla'=>$szamla1->id, 'osszeg'=>'50000', 'kuldes_idopont'=>'2022-02-22 19:56:47']);
+      
+       $response->assertStatus(500);
+       $szamla1 = Szamla::find($szamla1->id);
+       $this->assertEquals($szamla1->egyenleg, 321000);
+       $szamla2 = Szamla::find($szamla2->id);
+       $this->assertEquals($szamla2->egyenleg, 1000);
+       $szamla3 = Szamla::find($szamla3->id);
+       $this->assertEquals($szamla3->egyenleg, $szamla3->egyenleg);
+    }
+
 
     public function test_penzmozgasModositApi()
     {
         $szamla1 = $this->szamla();
-        $szamla1->save();
-        $szamla1 = Szamla::find($szamla1->id);
         $szamla1->egyenleg=320000;
         $szamla1->save();
         $szamla2 = $this->szamla();
-        $szamla2->save();
-        $szamla2 = Szamla::find($szamla2->id);
         $szamla2->egyenleg=30000000;
         $szamla2->save();
+      
         $penzmozgas = Penzmozgas::factory()->create();
         $datum=Carbon::parse($penzmozgas->kuldes_idopont);
 
@@ -83,5 +108,7 @@ class PenzmozgasTest extends TestCase
 
         $response->assertStatus(200);
 }
+
+
 
 }

@@ -35,6 +35,7 @@ class UserTest extends TestCase
 
         $response = $this->post('api/users/', ['name' => 'Kovács Jánosné', 'email' => 'cfsd@gfj.hu', 'password' => 'Almafa23??']);
         $response->assertStatus(201);
+    
     }
 
     public function test_userModositApi()
@@ -45,5 +46,9 @@ class UserTest extends TestCase
         $response = $this->put('api/users/' . $user->user_id, ['name' => 'Kovács Jánoska', 'email' => 'cdcfsdsdf@gfj.hu', 'password' => 'KAlmafa112323??']);
 
         $response->assertStatus(200);
+        $user = User::find($user->user_id);
+        $this->assertEquals($user->name, 'Kovács Jánoska');
     }
+
+    
 }

@@ -34,20 +34,6 @@ class UserTest extends TestCase
         $user->name = "Kiss Pista";
 
         $this->assertEquals($user->name, 'Kiss Pista');
-        $this->assertNotEquals($user->name, 'Kiss József');
-    }
-
-
-
-    public function test_felhasznalo_adatModosit()
-    {
-      
-        $user = $this->user();
-
-        $user->save();
-        $response = $this->put('api/users/' . $user->user_id, ['name' => 'Kiss Józsefné', 'email' => $user->email, 'password' => $user->password]);
-        $user = User::find($user->user_id);
-        $this->assertEquals($user->name, 'Kiss Józsefné');
-        $this->assertNotEquals($user->name, 'Kiss József');
-    }
+   
+    } 
 }
