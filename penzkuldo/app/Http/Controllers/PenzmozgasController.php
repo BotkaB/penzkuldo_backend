@@ -102,7 +102,7 @@ class PenzmozgasController extends Controller
             join szamlas as sz on p.kuldo_szamla=sz.id
             join szamlas as szc on p.cimzett_szamla=szc.id
             join users as u on sz.user_id=u.user_id
-            where u.user_id=$user->user_id
+            where u.user_id=$user
             order by p.kuldes_idopont Desc;");
 
            

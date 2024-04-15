@@ -1,0 +1,58 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "penzkuldo_lekerdezes_teszt",
+    "dateExported": "2024-04-15T09:56:02.104Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "fc5c69c3-ec47-4ca9-a044-bba8a01500d4",
+            "colId": "78187905-0343-4647-871b-47eb67b12e31",
+            "containerId": "",
+            "name": "felhasznalo_szamlai",
+            "url": "http://localhost:8000/api/szamla/felhasznaloszamlai/15",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-04-11T14:17:33.056Z",
+            "modified": "2024-04-11T16:16:21.923Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a219317e-0c70-4e29-acc5-29d074dac62d",
+            "colId": "78187905-0343-4647-871b-47eb67b12e31",
+            "containerId": "",
+            "name": "szamla_penzmozgasai",
+            "url": "http://localhost:8000/api/szamla/szamlapenzmozgasai/16",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-04-11T16:25:37.250Z",
+            "modified": "2024-04-11T16:26:29.040Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ec4cfea0-2255-48c2-8467-084d1b64d183",
+            "colId": "78187905-0343-4647-871b-47eb67b12e31",
+            "containerId": "",
+            "name": "bejelentkezettFelhasznaloPenzmozgasai",
+            "url": "http://localhost:8000/api/bejelentkezettfelhasznalopenzmozgasai",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-04-11T16:43:22.632Z",
+            "modified": "2024-04-15T09:53:29.185Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user@user.hu",
+                    "password": "user"
+                }
+            },
+            "tests": []
+        }
+    ]
+}
